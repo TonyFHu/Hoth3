@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+<title> How Many? </title>
+</head>
+<script>
+function check()
+{
+	if (localStorage.getItem("swipesLeft") != null)
+	{
+		document.location.href = "hello.html";
+	}
+}
+function myFunction() {
+	var swipesLeft = document.getElementById(6).value;
+	if (swipesLeft.length < 1)
+	{
+		alert("fill in the box");
+		return;
+	}
+	for (var i = 0; i < 5; i++)
+	{
+		if (document.getElementById(i + 1).checked)
+		{
+			localStorage.setItem("swipesLeft", swipesLeft);
+			localStorage.setItem("mealPlan", i + 1);
+		}
+	}
+	document.location.href = "hello.html";
+}
+
+</script>
+<body onload = "check()">
+	<form>
+		<input type = "radio" id = 1 name = "meal plan" value = "11R"> 11R <br>
+		<input type = "radio" id = 2 name = "meal plan" value = "14R"> 14R <br>
+		<input type = "radio" id = 3 name = "meal plan" value = "14P" checked> 14P <br>
+		<input type = "radio" id = 4 name = "meal plan" value = "19R"> 19R <br>
+		<input type = "radio" id = 5 name = "meal plan" value = "19P"> 19P <br>
+		<input type = "number" id = 6 name = "swipes left"> <br>
+	</form>
+	<button type = "button" onclick = "myFunction()"> Submit </button> <br>
+</body>

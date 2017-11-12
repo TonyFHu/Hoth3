@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+var swipes = localStorage.getItem("swipesLeft");
+var mealPlan = localStorage.getItem("mealPlan");
+
+function initialize() 
+{
+	document.getElementById("h1").innerHTML = swipes;
+}
+
+function reset()
+{
+	localStorage.clear();
+	document.location.href = "mealplan.html";
+}
+
+
+function changeNumber() 
+{ 
+	swipes = swipes - 1;
+	if ( swipes < 0 )
+	{
+		alert("You don't have any more swipes to use");
+		return;
+	}
+	document.getElementById("h1").innerHTML = swipes;
+}
+
+</script>
+<title> How Many? </title>
+</head>
+<body onload = "initialize()">
+	<h1> HOW MANY SWIPES DO I ACTUALLY HAVE </h1>
+	<h2 id = "h1"> hi </h2> 
+	<button id = "swipe" onclick = "changeNumber()"> SWIPE </button> <br>
+	<button onclick = "reset()"> Reset Info </button>
+</body>
+</html>
